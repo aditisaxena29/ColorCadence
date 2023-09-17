@@ -5,6 +5,14 @@ let buttonColours=["red","blue","green","yellow"];
 let started=false;
 let level=0;
 
+$(".btn").click(function() {
+    var userChoosenColour=$(this).attr("id");
+    userClickedPattern.push(userChoosenColour);
+    playSound(userChoosenColour);
+    animatePress(userChoosenColour);
+    checkAnswer(userClickedPattern.length-1);
+});
+
 $(document).keypress(()=>{
     if(!started)
     {
@@ -14,12 +22,14 @@ $(document).keypress(()=>{
     }
 });
 
-$(".btn").click(function() {
-    var userChoosenColour=$(this).attr("id");
-    userClickedPattern.push(userChoosenColour);
-    playSound(userChoosenColour);
-    animatePress(userChoosenColour);
-    checkAnswer(userClickedPattern.length-1);
+$(".btn-start").click(function(){
+  if(!started){
+    $(".btn-start").addClass("hidden-text");
+    nextSequence();
+    $("#level-title").text("Level "+level);
+    started = true;
+  }
+  
 });
 
 function nextSequence(){
