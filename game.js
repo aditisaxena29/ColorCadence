@@ -5,7 +5,7 @@ let buttonColours=["red","blue","green","yellow"];
 let started=false;
 let level=0;
 
-$(document).keydown(()=>{
+$(document).keypress(()=>{
     if(!started)
     {
         $("#level-title").text("Level "+level);
