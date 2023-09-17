@@ -14,8 +14,8 @@ $(document).keypress(()=>{
     }
 });
 
-$(".btn").click(event => {
-    let userChoosenColour=event.target.id;
+$(".btn").click(function() {
+    var userChoosenColour=$(this).attr("id");
     userClickedPattern.push(userChoosenColour);
     playSound(userChoosenColour);
     animatePress(userChoosenColour);
